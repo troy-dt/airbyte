@@ -172,6 +172,9 @@ class ManualJournals(IncrementalXeroStream):
     primary_key = "ManualJournalID"
     pagination = True
 
+class Journals(XeroStream):
+    primary_key = "JournalID"
+    pagination = True
 
 class Overpayments(IncrementalXeroStream):
     primary_key = "OverpaymentID"
@@ -249,5 +252,3 @@ class TaxRates(XeroStream):
 class TrackingCategories(XeroStream):
     primary_key = "TrackingCategoryID"
 
-class Journals(XeroStream):
-    primary_key = "JournalID"
