@@ -248,3 +248,6 @@ class TaxRates(XeroStream):
 
 class TrackingCategories(XeroStream):
     primary_key = "TrackingCategoryID"
+
+class Journals(XeroStream):
+    primary_key = "JournalID"
