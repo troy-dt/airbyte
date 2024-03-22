@@ -185,6 +185,10 @@ class Journals(IncrementalXeroStream):
     primary_key = "JournalID"
     pagination = True
 
+    @property
+    def cursor_field(self) -> str:
+        return "CreatedDateUTC"
+    
 
 class Overpayments(IncrementalXeroStream):
     primary_key = "OverpaymentID"
