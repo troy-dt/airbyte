@@ -2,76 +2,6 @@
   "streams": [
     {
       "stream": {
-        "name": "bank_transactions",
-        "json_schema": {},
-        "supported_sync_modes": ["full_refresh", "incremental"],
-        "source_defined_cursor": true,
-        "default_cursor_field": ["UpdatedDateUTC"],
-        "source_defined_primary_key": [["BankTransactionID"]]
-      },
-      "sync_mode": "incremental",
-      "destination_sync_mode": "overwrite",
-      "cursor_field": ["UpdatedDateUTC"],
-      "primary_key": [["BankTransactionID"]]
-    },
-    {
-      "stream": {
-        "name": "contacts",
-        "json_schema": {},
-        "supported_sync_modes": ["full_refresh", "incremental"],
-        "source_defined_cursor": true,
-        "default_cursor_field": ["UpdatedDateUTC"],
-        "source_defined_primary_key": [["ContactID"]]
-      },
-      "sync_mode": "incremental",
-      "destination_sync_mode": "overwrite",
-      "cursor_field": ["UpdatedDateUTC"],
-      "primary_key": [["ContactID"]]
-    },
-    {
-      "stream": {
-        "name": "credit_notes",
-        "json_schema": {},
-        "supported_sync_modes": ["full_refresh", "incremental"],
-        "source_defined_cursor": true,
-        "default_cursor_field": ["UpdatedDateUTC"],
-        "source_defined_primary_key": [["CreditNoteID"]]
-      },
-      "sync_mode": "incremental",
-      "destination_sync_mode": "overwrite",
-      "cursor_field": ["UpdatedDateUTC"],
-      "primary_key": [["CreditNoteID"]]
-    },
-    {
-      "stream": {
-        "name": "invoices",
-        "json_schema": {},
-        "supported_sync_modes": ["full_refresh", "incremental"],
-        "source_defined_cursor": true,
-        "default_cursor_field": ["UpdatedDateUTC"],
-        "source_defined_primary_key": [["InvoiceID"]]
-      },
-      "sync_mode": "incremental",
-      "destination_sync_mode": "overwrite",
-      "cursor_field": ["UpdatedDateUTC"],
-      "primary_key": [["InvoiceID"]]
-    },
-    {
-      "stream": {
-        "name": "journals",
-        "json_schema": {},
-        "supported_sync_modes": ["full_refresh", "incremental"],
-        "source_defined_cursor": true,
-        "default_cursor_field": ["CreatedDateUTC"],
-        "source_defined_primary_key": [["JournalID"]]
-      },
-      "sync_mode": "incremental",
-      "destination_sync_mode": "overwrite",
-      "cursor_field": ["CreatedDateUTC"],
-      "primary_key": [["JournalID"]]
-    },
-    {
-      "stream": {
         "name": "manual_journals",
         "json_schema": {},
         "supported_sync_modes": ["full_refresh", "incremental"],
@@ -90,12 +20,12 @@
         "json_schema": {},
         "supported_sync_modes": ["full_refresh", "incremental"],
         "source_defined_cursor": true,
-        "default_cursor_field": ["UpdatedDateUTC"],
+        "default_cursor_field": ["CreatedDateUTC"],
         "source_defined_primary_key": [["JournalID"]]
       },
       "sync_mode": "incremental",
       "destination_sync_mode": "overwrite",
-      "cursor_field": ["UpdatedDateUTC"],
+      "cursor_field": ["CreatedDateUTC"],
       "primary_key": [["JournalID"]]
     },
     {
