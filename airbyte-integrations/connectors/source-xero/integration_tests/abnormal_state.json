@@ -58,6 +58,17 @@
     "type": "STREAM",
     "stream": {
       "stream_descriptor": {
+        "name": "journals"
+      },
+      "stream_state": {
+        "UpdatedDateUTC": "2099-01-01T00:00:00+00:00"
+      }
+    }
+  },
+  {
+    "type": "STREAM",
+    "stream": {
+      "stream_descriptor": {
         "name": "overpayments"
       },
       "stream_state": {

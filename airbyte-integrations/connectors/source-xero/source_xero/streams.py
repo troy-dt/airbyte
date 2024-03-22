@@ -140,11 +140,19 @@ class IncrementalXeroStream(XeroStream, ABC):
         return request_headers
 
     def get_updated_state(self, current_stream_state: MutableMapping[str, Any], latest_record: Mapping[str, Any]) -> Mapping[str, Any]:
-        record_cursor_value = latest_record[self.cursor_field]
-        state_cursor_value = current_stream_state.get(self.cursor_field)
-        if state_cursor_value:
-            record_cursor_value = max(record_cursor_value, state_cursor_value)
-        current_stream_state[self.cursor_field] = record_cursor_value
+        # Handle streams with either or both cursor fields.
+        cursor_fields = [self.cursor_field] if isinstance(self.cursor_field, str) else self.cursor_field
+        for cursor_field in cursor_fields:
+            record_cursor_value = latest_record.get(cursor_field)
+            if record_cursor_value:
+                record_cursor_value = pendulum.parse(record_cursor_value)
+                state_cursor_value = current_stream_state.get(cursor_field)
+                if state_cursor_value:
+                    state_cursor_value = pendulum.parse(state_cursor_value)
+                    if record_cursor_value > state_cursor_value:
+                        current_stream_state[cursor_field] = record_cursor_value.to_datetime_string()
+                else:
+                    current_stream_state[cursor_field] = record_cursor_value.to_datetime_string()
         return current_stream_state
 
 
@@ -172,9 +180,11 @@ class ManualJournals(IncrementalXeroStream):
     primary_key = "ManualJournalID"
     pagination = True
 
-class Journals(XeroStream):
+
+class Journals(IncrementalXeroStream):
     primary_key = "JournalID"
     pagination = True
+
 
 class Overpayments(IncrementalXeroStream):
     primary_key = "OverpaymentID"

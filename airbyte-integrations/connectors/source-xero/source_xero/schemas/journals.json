@@ -73,5 +73,9 @@
       "type": ["null", "array"]
     }
   },
+  "UpdatedDateUTC": {
+    "type": ["null", "string"],
+    "format": "date-time"
+  },
   "additionalProperties": true
 }
